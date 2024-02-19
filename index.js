@@ -1,4 +1,6 @@
 
+//Detecting Button press
+
 let numberOfButtons =document.querySelectorAll(".drum").length
 for(let i=0;i<=numberOfButtons;i++){
 
@@ -6,7 +8,29 @@ for(let i=0;i<=numberOfButtons;i++){
        
        var buttonInnerHTML = this.innerHTML;
 
-       switch(buttonInnerHTML){
+       makeSound(buttonInnerHTML)
+       
+        
+       
+    }) // addEventlistener used to do specific operations through functions
+}
+
+
+
+
+//Detecting keyBoard press
+
+document.addEventListener("keypress",function(event){
+    
+    makeSound(event.key)
+})
+
+
+
+
+function makeSound(key){
+
+    switch(key){
         case "w":
             let tom1 = new Audio("sounds/tom-1.mp3");
              tom1.play() // play the sound
@@ -37,18 +61,7 @@ for(let i=0;i<=numberOfButtons;i++){
             crash.play() // play the sound
            break;
 
-        default:console.log(buttonInnerHTML)
-       }
-       
-        
-        // console.log(this.style.color="white")   //change colour of the text     
-    }) // addEventlistener used to do specific operations through functions
+        default:console.log(key)
 }
-
-// let audio = new Audio("sounds/crash.mp3");
-// audio.play() // play the sounds
-
-
-
-
-
+}
+ 
