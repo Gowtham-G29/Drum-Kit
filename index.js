@@ -9,6 +9,7 @@ for(let i=0;i<=numberOfButtons;i++){
        var buttonInnerHTML = this.innerHTML;
 
        makeSound(buttonInnerHTML)
+       buttonAnimations(buttonInnerHTML)
        
         
        
@@ -21,8 +22,9 @@ for(let i=0;i<=numberOfButtons;i++){
 //Detecting keyBoard press
 
 document.addEventListener("keypress",function(event){
-    
+
     makeSound(event.key)
+    buttonAnimations(event.key)
 })
 
 
@@ -64,4 +66,20 @@ function makeSound(key){
         default:console.log(key)
 }
 }
+
+function buttonAnimations(currentkey){
+
+    var activeButton=document.querySelector("."+currentkey)
+
+    activeButton.classList.add("pressed") //apply animations when button is pressed
+    setTimeout(function(){
+        activeButton.classList.remove("pressed")
+    },100)
+
+}
  
+
+
+
+
+
